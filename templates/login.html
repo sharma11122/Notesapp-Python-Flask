@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+
+
+
+    <form method="POST">
+        <h2>Login</h2>
+         
+       
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter email" autocomplete="off">
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
+
+        <p class="register-link">
+            Don’t have an account?
+            <a href="/register">Register</a>
+        </p>
+        
+         {% with messages=get_flashed_messages(with_categories=True) %}
+               {% for category,message in messages %}
+               <p class="{{ category }}">{{ message }}</p>
+               {% endfor %}
+        {% endwith %}
+       
+    </form>
+</div>
+
+</body>
+</html>
